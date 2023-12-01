@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    <link rel="stylesheet" href="/css/other.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+    </style>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body onload="cartLen()">
+    <%- include('components/nav') %>
+    <div class="container">
+      <h1><span>Talgtna</span></h1>
+      <div class="aboutQ">
+        <div class="Qut">
+          <h3 class="Q">الهدف :</h3>
+          <i class="bx bx-chevron-down" id="icon"></i>
+        </div>
+        <p class="A">
+          هدفنا هو إرضاء العملاء وتوفير لكم افضل المنتجات بارخص الاسعار
+        </p>
+      </div>
+      <div class="aboutQ">
+        <div class="Qut">
+          <h3 class="Q">النشاط :</h3>
+          <i class="bx bx-chevron-down" id="icon"></i>
+        </div>
+        <p class="A">بيع المنتجات المجمدات</p>
+      </div>
+      <div class="aboutQ">
+        <div class="Qut">
+          <h3 class="Q">رسالة للمستخدم :</h3>
+          <i class="bx bx-chevron-down" id="icon"></i>
+        </div>
+        <p class="A">نشكركم ع حسن تعاونكم معنا ونرجو ان نكون عند حسن ظنكم</p>
+      </div>
+      <div class="aboutQ">
+        <div class="Qut">
+          <h3 class="Q">تنوع المنتجات :</h3>
+          <i class="bx bx-chevron-down" id="icon"></i>
+        </div>
+        <p class="A">
+          يوفر "تلاجتنا" تشكيلة واسعة من المجمدات بمختلف الأنواع والنكهات، مما
+          يتيح للعملاء اختيار ما يفضلونه وفقًا لذوقهم الشخصي.
+        </p>
+      </div>
+      <div class="aboutQ">
+        <div class="Qut">
+          <h3 class="Q">الجودة :</h3>
+          <i class="bx bx-chevron-down" id="icon"></i>
+        </div>
+        <p class="A">
+          تهتم "تلاجتنا" بتقديم المنتجات ذات الجودة العالية، حيث يتم اختيار
+          المكونات باهتمام واتباع معايير صارمة في عملية التصنيع.
+        </p>
+      </div>
+      <div class="aboutQ">
+        <div class="Qut">
+          <h3 class="Q">ملائمة للذوق الشخصي :</h3>
+          <i class="bx bx-chevron-down" id="icon"></i>
+        </div>
+        <p class="A">
+          ييوفر "تلاجتنا" تشكيله كبيره وواسعه ومختلفه من المنتجات ويخدم هذا
+          الاختلاف العميل بحيث يجد كل عميل ما يناسب ذوقه الشخصي
+        </p>
+      </div>
+      <div class="aboutQ">
+        <div class="Qut">
+          <h3 class="Q">خدمة التوصيل :</h3>
+          <i class="bx bx-chevron-down" id="icon"></i>
+        </div>
+        <p class="A">
+          يوفر "تلاجتنا" خدمة توصيل سريعة وموثوقة، مما يوفر الوقت والجهد للعملاء
+          ويتيح لهم الاستمتاع بالمجمدات في أي وقت.
+        </p>
+      </div>
+    </div>
+    <%- include('components/footer') %>
+    <script>
+      "use strict";
+
+      var Q = document.querySelectorAll(".Qut");
+      Q.forEach(function (q) {
+        q.addEventListener("click", function (e) {
+          if (e.target.classList.contains("Qut")) {
+            var about = e.target.parentElement;
+            var Icon = e.target.getElementsByTagName("i")[0];
+            var A = about.getElementsByTagName("p")[0];
+            Icon.classList.toggle("open");
+            if (Icon.classList.contains("open")) {
+              A.style.display = "flex";
+              about.style.height = "150px";
+              Icon.style.transform = "rotate(180deg)";
+            } else {
+              A.style.display = "none";
+              about.style.height = "50px";
+              Icon.style.transform = "rotate(0deg)";
+            }
+          } else {
+            var _about = e.target.parentElement.parentElement;
+            var _Icon = e.target.parentElement.getElementsByTagName("i")[0];
+            var _A = _about.getElementsByTagName("p")[0];
+            console.log(_Icon);
+            _Icon.classList.toggle("open");
+            if (_Icon.classList.contains("open")) {
+              _A.style.display = "flex";
+              _about.style.height = "150px";
+              _Icon.style.transform = "rotate(180deg)";
+            } else {
+              _A.style.display = "none";
+              _about.style.height = "50px";
+              _Icon.style.transform = "rotate(0deg)";
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

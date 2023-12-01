@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link rel="stylesheet" href="/css/index.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="/dist/carousel.js" defer></script>
+  </head>
+  <body>
+    <%- include('components/nav') %> <% if (offers.length > 0) { %>
+    <div class="wrapper">
+      <i id="left" class="bx bx-chevron-left"></i>
+      <div class="carousel">
+        <% offers.forEach(offer => { %>
+        <a href="/category/<%= offer.category %>">
+          <img src="<%= offer.image %>" draggable="false" id="offerimage" />
+        </a>
+        <% }) %>
+      </div>
+      <i id="right" class="bx bx-chevron-right"></i>
+    </div>
+    <% } %>
+    <div class="container">
+      <% categories.forEach(category => { %>
+      <div class="d">
+        <div class="category">
+          <a href="/category/<%= category.name %>">
+            <div class="image">
+              <img src="<%= category.image %>" alt="<%= category.name %>" />
+            </div>
+          </a>
+        </div>
+        <p><%= category.name %></p>
+      </div>
+      <% }) %>
+      <h2>المنتجات الأكثر طلبًا</h2>
+      <div class="products">
+        <div class="left"><i class="bx bx-chevron-left"></i></div>
+        <% products.forEach((f) => { %>
+        <a href="/product/<%=f.id%>" class="furniture">
+          <button id="addtocart" onclick="addToFav('<%=f.id %>')">
+            <i class="bx bxs-cart-add"></i>
+          </button>
+          <button id="addtofav" onclick="addToFav('<%=f.id %>')">
+            <i class="bx bxs-heart"></i>
+          </button>
+          <div class="image">
+            <img src="<%=f.image%>" />
+          </div>
+          <div class="body">
+            <p><%=f.name.substr(0,15)%> ...</p>
+          </div>
+          <p class="price"><%=f.price%> L.E</p>
+        </a>
+        <% }) %>
+      </div>
+      <h2>احدث المنتجات</h2>
+      <div class="newproducts">
+        <div class="left"><i class="bx bx-chevron-left"></i></div>
+        <% products.forEach((f) => { %>
+        <a href="/product/<%=f.id%>" class="furniture">
+          <button id="addtocart" onclick="addToFav('<%=f.id %>')">
+            <i class="bx bxs-cart-add"></i>
+          </button>
+          <button id="addtofav" onclick="addToFav('<%=f.id %>')">
+            <i class="bx bxs-heart"></i>
+          </button>
+          <div class="image">
+            <img src="<%=f.image%>" />
+          </div>
+          <div class="body">
+            <p><%=f.name.substr(0,15)%> ...</p>
+          </div>
+          <p class="price"><%=f.price%> L.E</p>
+        </a>
+        <% }) %>
+      </div>
+    </div>
+    <%- include('components/footer') %>
+    <script>
+      if (!localStorage.getItem("favlist")) {
+        localStorage.setItem("favlist", "[]");
+      }
+    </script>
+  </body>
+</html>

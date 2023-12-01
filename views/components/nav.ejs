@@ -1,0 +1,84 @@
+<nav
+  style="
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    background: #fff;
+    direction: rtl;
+  "
+>
+  <div
+    class="icons"
+    style="
+      width: 100%;
+      display: grid;
+      grid-template-columns: 80% 20%;
+      place-items: center;
+    "
+  >
+    <form
+      action="/search"
+      method="post"
+      style="
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <input
+        type="search"
+        name="search"
+        placeholder="ابحث هنا"
+        style="
+          width: 100%;
+          border-radius: 50px;
+          border: none;
+          background: #eee;
+          padding: 0 5px;
+          height: 30px;
+          direction: rtl;
+        "
+      />
+      <button
+        type="submit"
+        style="
+          position: absolute;
+          left: 0%;
+          background: red;
+          width: 50px;
+          height: 30px;
+          border-radius: 50px 0 0 50px;
+          cursor: pointer;
+          border: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 25px;
+          color: #fff;
+        "
+      >
+        <i class="bx bx-search"></i>
+      </button>
+    </form>
+    <a
+      style="
+        color: red;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        width: 100%;
+      "
+      id="favIcon"
+      href="/"
+      ><img src="/img/logo.png" style="width: auto; height: 50px" />
+    </a>
+  </div>
+</nav>
+
+<script src="/dist/nav.js"></script>
